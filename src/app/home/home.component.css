@@ -27,7 +27,7 @@
     width: 60px;
     height: 100vh;
     background-color: #263238;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     overflow-x: hidden;
     -webkit-transition: width 300ms ease;
     transition: width 300ms ease;
