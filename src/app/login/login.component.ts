@@ -22,11 +22,22 @@ export class LoginComponent implements OnInit
 
     /* Forms */
 
-  loginFormGroup!: FormGroup;
+  /* Forms */
+  /* Forms */
+  /* Forms */
+  loginFormGroup: FormGroup ;
 
   model : any = {};
 
-  constructor(private authservices: AuthService , private router : Router , private formBuilder: FormBuilder) { }
+  constructor(private authservices: AuthService , private router : Router , private formBuilder: FormBuilder) { 
+
+    this.loginFormGroup =  this.formBuilder.group({
+
+      Username: ["", Validators.required],
+      Password: ["",Validators.required],
+ });
+ 
+  }
 
   isLogin :boolean=true;
 
@@ -35,26 +46,24 @@ export class LoginComponent implements OnInit
   {
     this.initForms();
   }
-  initForms(): void {
+  initForms() {
  /* Login form initialization */
- this.loginFormGroup =  this.formBuilder.group({
-
-     Username: ["", Validators.required],
-     Password: ["",Validators.required],
-});
 
 
   }
 
   login()
   {
+    console.log("Login :")
  // Construct user login payload object
  const loginData: UserLogin = {
-  Username: this.loginFormGroup.get("Username").value,
-  Password: this.loginFormGroup.get("Password").value,
+  Username : this.loginFormGroup.controls.Username.value,
+  Password: this.loginFormGroup.controls.Password.value,
 };
- 
-console.log(" Login Model :",loginData)
+// let Username:string =this.loginFormGroup.get("Username").value;
+// let Password: string =this.loginFormGroup.get("Password").value;
+
+console.log(" Login Model :",this.loginFormGroup);
 
 
     this.authservices.loginX(loginData).subscribe

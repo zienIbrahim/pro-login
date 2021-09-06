@@ -20,7 +20,7 @@
 
 
     <div class="form-container sign-in-container">
-        <form action="#">
+        <form [formGroup]="loginFormGroup">
             <h1>Sign in</h1>
             <div class="social-container">
                 <!-- <a  class="social">  <fa-icon icon="download" class="icon" size="2x"></fa-icon></a>
@@ -33,10 +33,10 @@
           <a  class="social"> <fa-icon icon="twitter-square" class="icon"></fa-icon></a> -->
             </div>
             <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
+            <input type="email" placeholder="Email"  formControlName="Username" />
+            <input type="password" placeholder="Password" formControlName="Password"/>
             <a href="#">Forgot your password?</a>
-            <button> Sign In</button>
+            <button (click)="login()"> Sign In</button>
         </form>
     </div>
 
